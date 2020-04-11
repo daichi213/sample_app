@@ -1,0 +1,56 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+body{
+    padding-top:60px;
+}
+
+section{
+    overflow: auto;
+}
+
+textarea{
+    resize: vertical;
+}
+
+.center{
+    text-align: center;
+}
+
+.center h1{
+    margin-bottom: 10px;
+}
+
+img {
+    display: none;
+  }
+
+/* header */
+
+#logo{
+    float: left;
+    margin-right: 10px;
+
+    /* em(えむ)は文字の大きさを基準にしている単位で、文字の大きさを20pxとしている場合は
+    1emは20pxとなる。
+    これは相対単位と呼ばれ、ブラウザから文字の大きさの要求があった場合にそれに合わせて文字
+    の大きさが変化するため、一般的に使用が推奨されている。 */
+    font-size: 1.7em;
+    color: #fff;
+
+    /* 大文字表記 */
+    text-transform: uppercase;
+
+    /* 文字の間隔 */
+    letter-spacing:-1px;
+
+    padding-top: 9px;
+    font-weight:bold;
+}
+
+#logo:hover{
+    color:#fff;
+    text-decoration: none;
+}
