@@ -1,0 +1,14 @@
+<!-- objectはform_forから渡されるオブジェクト -->
+<!-- 因みにこのobject引数はrenderで指定するときのキーと一致していれば何を使用しても構わない. -->
+<% if object.errors.any? %>
+    <div id="error_explanation">
+        <div class="alert alert-danger">
+            The form contains <%= pluralize(object.errors.count, "error") %>.
+        </div>
+        <ul>
+        <% object.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>

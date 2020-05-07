@@ -1,0 +1,17 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+<!--
+<% @users.each do |user| %>
+    <%= render user %>
+<% end %>
+    この表現は以下のように書き換えることができる。
+    each文で要素を繰り返さなくても自動でオブジェクト内の変数をひとつひとつ取り出してくれる
+-->
+    <%= render @users %>
+</ul>
+
+<%= will_paginate %>
