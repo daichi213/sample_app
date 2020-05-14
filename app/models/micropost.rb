@@ -1,4 +1,5 @@
 class Micropost < ApplicationRecord
+  # belongs_toで関連付けるテーブルは一つに決まるため単数形になっている
   belongs_to :user
   # -> {}はブロックといい、-{}.callのようにコールバックメソッドで呼び出されたときに実行される
   default_scope -> {order(created_at: :desc)}

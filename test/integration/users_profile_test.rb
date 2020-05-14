@@ -23,4 +23,15 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_match micropost.content, response.body
     end
   end
+
+  # 自分で書いたテスト
+  test "user followers and following information" do
+    log_in_as @user
+    get root_path
+    assert_select "a[href=?]", following_user_path(@user), text: "#{@user.following.count}\nfollowing"
+    assert_select "a[href=?]", followed_user_path(@user), text: "#{@user.followed.count}\nfollowed"
+    get user_path @user
+    assert_select "a[href=?]", following_user_path(@user), text: "#{@user.following.count}\nfollowing"
+    assert_select "a[href=?]", followed_user_path(@user), text: "#{@user.followed.count}\nfollowed"
+  end
 end

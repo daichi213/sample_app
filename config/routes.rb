@@ -13,15 +13,23 @@ Rails.application.routes.draw do
 
   post '/signup', to:"users#create"
 
-  resources :users
-
   get '/login', to:"session#new"
 
   post '/login', to:"session#create"
 
   delete '/logout', to:"session#destroy"
 
+  # resourcesメソッドを使用する際にidを使用することができる書き方
+  # idを指定せず複数定義する場合はmemberの代わりにcollectionメソッドを使用する
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :microposts, only: [:create, :destroy]
+
+  resources :relationships, only: [:create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
