@@ -28,6 +28,7 @@ class User < ApplicationRecord
     validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
     def User.digest(string)
+        # 以下はコストパラメーターをテスト中は最小にし、本番環境ではしっかりと計算する方法
         # min_costと?をくっつけるとメソッドと誤認識されるためしっかり離す
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                     BCrypt::Engine.cost
